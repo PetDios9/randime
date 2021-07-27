@@ -2,6 +2,7 @@ import { AppBar, makeStyles, Toolbar, Typography } from '@material-ui/core'
 import React from 'react'
 
 const useStyles = makeStyles(theme => ({
+    headerHeight: theme.mixins.toolbar,
     header: {
         display: 'flex',
        alignItems: "center"
@@ -15,18 +16,20 @@ const useStyles = makeStyles(theme => ({
 const Header = () => {
     const classes = useStyles()
     return(
-        <AppBar 
-            position="sticky" 
-            color="transparent" 
-            className={classes.header}
-            elevation={0}
-        >
-            <Toolbar>
-                <Typography variant="h2" className={classes.randimeText}>
-                    Randime!
-                </Typography>
-            </Toolbar>
-        </AppBar>
+        <div className={classes.headerHeight}>
+            <AppBar 
+                position='static'
+                color="transparent" 
+                className={classes.header}
+                elevation={0}
+            >
+                <Toolbar>
+                    <Typography variant="h2" className={classes.randimeText}>
+                        Randime!
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </div>
     )
 }
 

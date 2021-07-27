@@ -3,11 +3,15 @@ import { grey } from '@material-ui/core/colors';
 import './App.css'
 import Header from './components/Header'
 import '@fontsource/roboto'
+import Homepage from './pages/Homepage';
 
 const theme = createTheme({
   palette: {
     background: {
-      default: grey[900]
+      default: grey[900],
+    },
+    text: {
+      primary: '#FFFFFF'
     }
   }
 })
@@ -18,6 +22,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline>
           <Header />
+          <Homepage />
         </CssBaseline>
       </ThemeProvider>
     </div>
