@@ -8,7 +8,6 @@ const useStyles = makeStyles(theme => ({
        alignItems: "center"
     },
     randimeText: {
-        color: 'white',
         textShadow: '1px 1px #919191, 2px 2px #919191, 3px 3px#919191, 4px 4px #919191'
     }
 }))
