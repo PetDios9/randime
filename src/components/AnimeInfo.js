@@ -3,32 +3,42 @@ import React from 'react'
 
 const useStyles = makeStyles(theme => ({
     root: {
-        margin: '3% 5% 0% 5%',
+        background: `linear-gradient(to bottom, rgba(0,0,0,.7), rgba(0,0,0,.7), rgba(0,0,0,.7) 93%)`,
+        width: '80vw',
     },
     titleText: {
         textShadow: '1px 1px #919191, 2px 2px #919191, 3px 3px#919191'
     },
     synopsis: {
-        overflow: 'auto'
-    }
+        overflow: 'auto',
+    },
+    trailerLinkText: {
+        color: '#FFFFFF'
+    },
 }))
 
 const AnimeInfo = (props) => {
     const classes = useStyles()
-    console.log(props.anime)
     return(
         <div className={classes.root}>
-            <Grid container direction="row" justifyContent="center" spacing={0} >
-                <Grid item xs={4}>
+            <Grid 
+                container 
+                direction="row" 
+                justifyContent="center" 
+                alignItems="center" 
+                spacing={3} 
+            >
+                <Grid item xs={12} md={4}>
                     <img 
-                    src={props.anime.posterImage.medium}
+                    src={props.anime.posterImage.small}
                     alt={
                         props.anime.titles.en? 
                         `Poster Image for ${props.anime.titles.en}` :
-                        `Poster Image for ${props.anime.titles.en_jp}`} 
+                        `Poster Image for ${props.anime.titles.en_jp}`
+                        } 
                     />
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={12} md={8}>
                     <Grid container 
                         direction="column" 
                         justifyContent="center" 
@@ -47,15 +57,22 @@ const AnimeInfo = (props) => {
                             </Typography>
                         </Grid>
                         <Grid item xs={12} className={classes.synopsis}>
-                            <Typography variant="body1">
-                                <em>Synopsis:</em>
+                            <Typography variant="body1" align="center">
+                                <em>Synopsis: </em>
                                 <br />
                                 <br />
                                 {props.anime.synopsis}
+                                <br />
+                                <br />
                             </Typography>
                             <Typography variant="subtitle1">
+                                <em>Release Date: </em>
+                                {props.anime.startDate}
+                            </Typography>
+                            <Typography variant="subtitle1" className={classes.trailerLinkText}>
                                 {props.anime.youtubeVideoId != null && props.anime.youtubeVideoId !== "" ? 
-                                <a href={`https://www.youtube.com/watch?v=${props.anime.youtubeVideoId}`} 
+                                <a 
+                                href={`https://www.youtube.com/watch?v=${props.anime.youtubeVideoId}`} 
                                 target='_blank' 
                                 rel="noreferrer"
                                     >
